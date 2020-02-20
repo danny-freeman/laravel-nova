@@ -38,6 +38,16 @@ class Post extends Resource
         'id', 'title', 'body'
     ];
 
+    public function title()
+    {
+        return $this->title . ' - ' . $this->category;
+    }
+
+    public function subtitle()
+    {
+        return 'Author: ' . $this->user->name;
+    }
+
     public static function indexQuery(NovaRequest $request, $query)
     {
         return $query->where('user_id', $request->user()->id);
