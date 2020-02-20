@@ -3,9 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Nova\Actions\Actionable;
 
 class Post extends Model
 {
+    use Actionable;
+
+    protected $fillable = ['is_published'];
     protected $casts = [
         'publish_at' => 'datetime',
         'publish_until' => 'datetime',
